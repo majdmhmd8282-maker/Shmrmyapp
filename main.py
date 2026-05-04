@@ -1,19 +1,19 @@
-import os
+name: CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Install
+        run: |
+          pip install h8mail sherlock-project
+          git clone --depth 1 https://github.com
+      - name: Run
+        run: python main.py
 
-def menu():
-    print("\n--- اجهزة ذكية للمستقبل ---")
-    print("1. ثغرة حقن SQL")
-    print("2. كشف التسريبات")
-    print("3. البحث عن أرقام (شيرلوك)")
-    
-    choice = os.getenv('CHOICE', '1')
-
-    if choice == "1":
-        target = "https://example.com"
-        os.system(f"python3 sqlmap/sqlmap.py -u {target} --batch")
-    elif choice == "2":
-        target = "email@example.com"
-        os.system(f"h8mail -t {target}")
-
-menu()
 
