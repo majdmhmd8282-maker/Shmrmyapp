@@ -1,22 +1,19 @@
 import os
 
 def menu():
-    print("\n--- اجهزة مستقبل ذكية ---")
-    print("1. هجوم SQL Injection")
-    print("2. كشف التسريبات (Breach)")
-    print("3. البحث عن الحسابات (Sherlock)")
-
-    choice = os.getenv('CHOICE', '1')
+    print("\n--- اجهزة ذكية للمستقبل ---")
+    print("1. ثغرة حقن SQL")
+    print("2. كشف التسريبات")
+    print("3. البحث عن أرقام (شيرلوك)")
     
-    if choice == "1":
-        target = input("أدخل رابط الهدف: ")
-        os.system(f"python3 sqlmap/sqlmap.py -u {target} --batch --dbs")
-    elif choice == "2":
-        target = input("أدخل الإيميل المسرب: ")
-        os.system(f"h8mail -t {target}")
-    elif choice == "3":
-        target = input("أدخل اسم المستخدم: ")
-        os.system(f"sherlock {target}")
+    choice = os.getenv('CHOICE', '1')
 
-if __name__ == "__main__":
-    menu()
+    if choice == "1":
+        target = "https://example.com"
+        os.system(f"python3 sqlmap/sqlmap.py -u {target} --batch")
+    elif choice == "2":
+        target = "email@example.com"
+        os.system(f"h8mail -t {target}")
+
+menu()
+
