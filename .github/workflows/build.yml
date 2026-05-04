@@ -10,6 +10,8 @@ jobs:
         with:
           python-version: '3.10'
       - name: Install dependencies
-        run: pip install h8mail sherlock-project
+        run: |
+          pip install h8mail sherlock-project
+          git clone --depth 1 https://github.com
       - name: Run
         run: python main.py
