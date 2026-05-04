@@ -5,8 +5,8 @@ def menu():
     print("1. هجوم SQL Injection")
     print("2. كشف التسريبات (Breach)")
     print("3. البحث عن الحسابات (Sherlock)")
-    
-    choice = input("\nاختر رقم العملية: ")
+
+    choice = os.getenv('CHOICE', '1')
     
     if choice == "1":
         target = input("أدخل رابط الهدف: ")
